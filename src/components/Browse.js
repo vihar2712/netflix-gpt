@@ -1,11 +1,12 @@
-import React from "react";
 import Header from "./Header";
 
+import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
+
 const Browse = () => {
+  useNowPlayingMovies();
   return (
     <div className="bg-black h-screen">
-      <Header />
-      <h1>Browse page</h1>
+      <Header />        
     </div>
   );
 };

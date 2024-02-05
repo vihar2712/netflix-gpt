@@ -18,6 +18,10 @@
 ####    -used methods like onAuthStateChanged,createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile etc...
 ### show the user name on the header on ('/browse') after sign up/sign in using redux(created a store, slice, dispatch function, render function and component using a selector to subscribe to the store) 
 ### sign out working => on click, navigate back to login page
+### started working on the browse page
+### initialized TMDB API with the access token 
+### created a slice for 'Now Playing Movies', got data from API and stored it in the store
+### created a custom hook having the logic of fetching the 'Now Playing Movies' from the API.
     
 ## Features to be included:
 

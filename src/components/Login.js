@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { validateData } from "../utils/validateData";
+import { BACKGROUND_IMAGE, USER_LOGO } from "../utils/constants";
 import { auth } from "../utils/firebase";
 import {
   createUserWithEmailAndPassword,
@@ -42,11 +43,12 @@ const Login = () => {
           .then((userCredential) => {
             // Signed up
             const user = userCredential.user;
+            console.log(user, auth.currentUser);
+
             //   user.displayName = name.current.value;
             updateProfile(user, {
               displayName: name.current.value,
-              photoURL:
-                "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg",
+              photoURL: USER_LOGO,
             })
               .then(() => {
                 // Profile updated!
@@ -59,7 +61,6 @@ const Login = () => {
                     photoURL: photoURL,
                   })
                 );
-                navigate("/browse");
               })
               .catch((error) => {
                 // An error occurred
@@ -81,28 +82,6 @@ const Login = () => {
           .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
-            updateProfile(user, {
-              
-              photoURL:
-                "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg",
-            })
-              .then(() => {
-                // Profile updated!
-                const { uid, email, displayName, photoURL } = auth.currentUser;
-                dispatch(
-                  addUser({
-                    uid: uid,
-                    email: email,
-                    displayName: displayName,
-                    photoURL: photoURL,
-                  })
-                );
-                navigate("/browse");
-              })
-              .catch((error) => {
-                // An error occurred
-                setErrorMessage(error.message);
-              });
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -117,11 +96,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="bg-black absolute top-0">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/9134db96-10d6-4a64-a619-a21da22f8999/a449fabb-05e4-4c8a-b062-b0bec7d03085/IN-en-20240115-trifectadaily-perspective_alpha_website_large.jpg"
-          className="opacity-55"
-          alt="bg-movies"
-        />
+        <img src={BACKGROUND_IMAGE} className="opacity-55" alt="bg-movies" />
       </div>
 
       <div className="flex flex-col absolute bg-black text-white lg:w-4/12 py-10 px-12 rounded-md top-28 right-1/3 bg-opacity-80">
@@ -141,6 +116,7 @@ const Login = () => {
                 type="text"
                 placeholder="Full Name"
                 className="p-4 m-2 bg-transparent border border-gray-500 rounded-sm w-full"
+                required
               />
             )}
             <input
@@ -148,12 +124,14 @@ const Login = () => {
               type="text"
               placeholder="Email address"
               className="p-4 m-2 bg-transparent border border-gray-500 rounded-sm w-full"
+              required
             />
             <input
               ref={password}
               type="password"
               placeholder="password"
               className="p-4 m-2 bg-transparent border border-gray-500 rounded-sm w-full"
+              required
             />
             <button className="w-full py-2 px-4 m-2 bg-red-600 hover:bg-red-700 rounded-md">
               {isSignIn ? "Sign In" : "Sign Up"}

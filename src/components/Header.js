@@ -1,15 +1,17 @@
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
-import { removeUser } from "../utils/userSlice";
+import { addUser, removeUser } from "../utils/userSlice";
+import { useEffect } from "react";
+import { NETFLIX_LOGO } from "../utils/constants";
 
 const Header = () => {
-  const user = useSelector((store) => store.user);
-  console.log(user);
-  
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector((store) => store.user);
+  //   console.log("user");
+  //   if (!user) navigate("/login");
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -19,21 +21,44 @@ const Header = () => {
       })
       .catch((error) => {
         // An error happened.
+        navigate("/error");
       });
   };
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // console.log(user);
+
+        // user is signed in
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        navigate("/browse");
+      } else {
+        // User is signed out
+        // dispatch(removeUser());
+        navigate("/");
+      }
+    });
+  }, []);
   return (
     <div className="flex justify-between">
       <div className=" w-64 p-4 hover:cursor-pointer z-30">
-        <img
-          src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-          alt="netflix-logo"
-        />
+        <img src={NETFLIX_LOGO} alt="netflix-logo" />
       </div>
       {user && (
         <div className="flex p-6 m-4 text-white items-center">
-            <h1>{user.displayName}</h1>
+          <h1>{user.displayName}</h1>
           <img src={user.photoURL} className="w-14 px-2" />
-          <button onClick={handleSignOut} className="hover:underline">Sign Out</button>
+          <button onClick={handleSignOut} className="hover:underline">
+            Sign Out
+          </button>
         </div>
       )}
     </div>

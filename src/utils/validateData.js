@@ -1,5 +1,5 @@
 export const validateData = (email, password, name = "Default name") => {
-  console.log(email, password, name);
+  // console.log(email, password, name);
 
   const isEmailValid = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/.test(
     email
@@ -10,7 +10,7 @@ export const validateData = (email, password, name = "Default name") => {
       "Viharshah1234@"
     );
   const isNameValid = /^([a-zA-Z]{3,})+ ([a-zA-Z]{3,})+$/.test(name);
-  console.log(isNameValid, isEmailValid, isPasswordValid);
+  // console.log(isNameValid, isEmailValid, isPasswordValid);
 
   if (!isNameValid) return "Enter full name";
 
