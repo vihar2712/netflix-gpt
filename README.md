@@ -25,6 +25,10 @@
 ### created a landing base with the movie title and its trailer playing in the background
 ### getting the trailer video from the TMDB API and storing it in the store
 ### embed the trailer video from YouTube and play it in the loop, autoplay, mute
+### worked on the secondary container which shows the movie lists
+### created different reducers for different movie categories
+### created a central hook (useMovieCategory) which takes the API link and dispatch function as parameters and stores the data returned by API inside the redux store
+### applied styling through tailwind css
 ### 
     
 ## Features to be included:

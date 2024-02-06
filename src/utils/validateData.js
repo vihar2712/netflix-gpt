@@ -7,7 +7,7 @@ export const validateData = (email, password, name = "Default name") => {
 
   const isPasswordValid =
     /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(
-      "Viharshah1234@"
+     password
     );
   const isNameValid = /^([a-zA-Z]{3,})+ ([a-zA-Z]{3,})+$/.test(name);
   // console.log(isNameValid, isEmailValid, isPasswordValid);
