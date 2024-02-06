@@ -22,6 +22,10 @@
 ### initialized TMDB API with the access token 
 ### created a slice for 'Now Playing Movies', got data from API and stored it in the store
 ### created a custom hook having the logic of fetching the 'Now Playing Movies' from the API.
+### created a landing base with the movie title and its trailer playing in the background
+### getting the trailer video from the TMDB API and storing it in the store
+### embed the trailer video from YouTube and play it in the loop, autoplay, mute
+### 
     
 ## Features to be included:
 

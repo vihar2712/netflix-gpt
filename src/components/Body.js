@@ -8,7 +8,6 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { onAuthStateChanged } from "firebase/auth";
 
 const Body = () => {
-  const dispatch = useDispatch();
   const appRouter = createBrowserRouter([
     {
       path: "/",
@@ -24,8 +23,7 @@ const Body = () => {
     },
   ]);
 
-
-  return <RouterProvider router={appRouter} />; 
+  return <RouterProvider router={appRouter}/>;
 };
 
 export default Body;

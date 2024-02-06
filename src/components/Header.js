@@ -48,12 +48,12 @@ const Header = () => {
     });
   }, []);
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between bg-gradient-to-b from-black">
       <div className=" w-64 p-4 hover:cursor-pointer z-30">
         <img src={NETFLIX_LOGO} alt="netflix-logo" />
       </div>
       {user && (
-        <div className="flex p-6 m-4 text-white items-center">
+        <div className="flex p-6 m-4 text-white items-center z-40">
           <h1>{user.displayName}</h1>
           <img src={user.photoURL} className="w-14 px-2" />
           <button onClick={handleSignOut} className="hover:underline">
