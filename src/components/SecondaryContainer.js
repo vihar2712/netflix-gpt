@@ -20,10 +20,12 @@ const SecondaryContainer = () => {
   useMovieCategory(TOP_RATED_MOVIES_API_URL, addTopRatedMovies);
   useMovieCategory(UPCOMING_MOVIES_API_URL, addUpcomingMovies);
   const allMovieCategories = useSelector((store) => store.movies);
+  console.log(allMovieCategories);
+  
 
   return (
     <div className="bg-black">
-      <div className="relative -mt-60">
+      <div className="-mt-60">
         <MoviesList
           title="Now Playing"
           movies={allMovieCategories.nowPlayingMovies}

@@ -28,8 +28,8 @@
 ### worked on the secondary container which shows the movie lists
 ### created different reducers for different movie categories
 ### created a central hook (useMovieCategory) which takes the API link and dispatch function as parameters and stores the data returned by API inside the redux store
-### applied styling through tailwind css
-### 
+### build a GPT Search Page
+### Bonus feature - Made the GPT Search Page multi-lingual. It supports 4 languages - English , Hindi , French , Italian
     
 ## Features to be included:
 
