@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 const useMovieCategory = (link, dispatchFunction) => {
-//   console.log(link, dispatchFunction);
+  //   console.log(link, dispatchFunction);
 
   const dispatch = useDispatch();
 
@@ -12,9 +12,11 @@ const useMovieCategory = (link, dispatchFunction) => {
   }, []);
 
   const getMovieCategory = async () => {
-    const data = await fetch(link, API_OPTIONS);
-    const json = await data.json();
-    dispatch(dispatchFunction(json.results));
+    try {
+      const data = await fetch(link, API_OPTIONS);
+      const json = await data.json();
+      dispatch(dispatchFunction(json.results));
+    } catch (error) {}
   };
 };
 

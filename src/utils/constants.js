@@ -29,3 +29,9 @@ export const UPCOMING_MOVIES_API_URL =
   "https://api.themoviedb.org/3/movie/upcoming?page=2";
 
 export const MOVIE_IMAGE_URL = "https://image.tmdb.org/t/p/w500/";
+
+export const OPEN_AI_KEY =
+  "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";
+
+export const SEARCH_MOVIES_API_URL =
+  "https://api.themoviedb.org/3/search/movie?query=";

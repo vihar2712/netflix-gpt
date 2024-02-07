@@ -9,7 +9,6 @@ import {
 } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 
 const Login = () => {
@@ -19,7 +18,6 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleIsSignIn = () => {
     setIsSignIn(!isSignIn);

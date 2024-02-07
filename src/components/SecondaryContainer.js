@@ -20,28 +20,17 @@ const SecondaryContainer = () => {
   useMovieCategory(TOP_RATED_MOVIES_API_URL, addTopRatedMovies);
   useMovieCategory(UPCOMING_MOVIES_API_URL, addUpcomingMovies);
   const allMovieCategories = useSelector((store) => store.movies);
-  console.log(allMovieCategories);
-  
+  // console.log(allMovieCategories);
+  const { nowPlayingMovies, popularMovies, topRatedMovies, upcomingMovies } =
+    allMovieCategories;
 
   return (
-    <div className="bg-black">
+    <div>
       <div className="-mt-60">
-        <MoviesList
-          title="Now Playing"
-          movies={allMovieCategories.nowPlayingMovies}
-        />
-        <MoviesList
-          title="Popular Movies"
-          movies={allMovieCategories.popularMovies}
-        />
-        <MoviesList
-          title="Top Rated"
-          movies={allMovieCategories.topRatedMovies}
-        />
-        <MoviesList
-          title="Upcoming"
-          movies={allMovieCategories.upcomingMovies}
-        />
+        <MoviesList title="Now Playing" movies={nowPlayingMovies} />
+        <MoviesList title="Popular Movies" movies={popularMovies} />
+        <MoviesList title="Top Rated" movies={topRatedMovies} />
+        <MoviesList title="Upcoming" movies={upcomingMovies} />
       </div>
     </div>
   );
