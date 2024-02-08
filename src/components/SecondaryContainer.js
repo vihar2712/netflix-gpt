@@ -15,10 +15,10 @@ import {
 } from "../utils/movieSlice";
 
 const SecondaryContainer = () => {
-  useMovieCategory(NOW_PLAYING_MOVIES_API_URL, addNowPlayingMovies);
-  useMovieCategory(POPULAR_MOVIES_API_URL, addPopularMovies);
-  useMovieCategory(TOP_RATED_MOVIES_API_URL, addTopRatedMovies);
-  useMovieCategory(UPCOMING_MOVIES_API_URL, addUpcomingMovies);
+  useMovieCategory(NOW_PLAYING_MOVIES_API_URL, addNowPlayingMovies,"nowPlayingMovies");
+  useMovieCategory(POPULAR_MOVIES_API_URL, addPopularMovies,"popularMovies");
+  useMovieCategory(TOP_RATED_MOVIES_API_URL, addTopRatedMovies,"topRatedMovies");
+  useMovieCategory(UPCOMING_MOVIES_API_URL, addUpcomingMovies,"upcomingMovies");
   const allMovieCategories = useSelector((store) => store.movies);
   // console.log(allMovieCategories);
   const { nowPlayingMovies, popularMovies, topRatedMovies, upcomingMovies } =
@@ -26,7 +26,7 @@ const SecondaryContainer = () => {
 
   return (
     <div>
-      <div className="-mt-60">
+      <div className="sm:-mt-24 md:-mt-32 lg:-mt-36 xl:-mt-48">
         <MoviesList title="Now Playing" movies={nowPlayingMovies} />
         <MoviesList title="Popular Movies" movies={popularMovies} />
         <MoviesList title="Top Rated" movies={topRatedMovies} />

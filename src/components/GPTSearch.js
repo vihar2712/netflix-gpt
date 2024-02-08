@@ -8,14 +8,14 @@ const GPTSearch = () => {
   const language = useSelector((store) => store.language?.lang);
   return (
     <div>
-      <div className="bg-black fixed rounded-md top-0 -z-10">
-        <img src={BACKGROUND_IMAGE} className="opacity-55" alt="bg-movies" />
+      <div className="bg-black -z-10 fixed top-0 rounded-md">
+        <img src={BACKGROUND_IMAGE} className="opacity-55 h-screen w-screen object-cover" alt="bg-movies" />
       </div>
-      <div>
+      {/* <div>
         <h1 className="bg-red-600 p-2 m-2 rounded-sm text-gray-300">
           {ALL_LANGUAGES[language].disclaimer}
         </h1>
-      </div>
+      </div> */}
       <GPTSearchBar />
       <GPTMovieSuggestions />
     </div>

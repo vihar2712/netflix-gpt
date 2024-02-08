@@ -1,14 +1,16 @@
 import { API_OPTIONS, NOW_PLAYING_MOVIES_API_URL } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
-const useMovieCategory = (link, dispatchFunction) => {
+const useMovieCategory = (link, dispatchFunction, state) => {
   //   console.log(link, dispatchFunction);
+  const currentState = useSelector((store) => store.movies?.[state]);
+  // console.log(currentState);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getMovieCategory();
+    !currentState && getMovieCategory();
   }, []);
 
   const getMovieCategory = async () => {

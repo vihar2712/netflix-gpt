@@ -32,6 +32,7 @@
 - Bonus feature - Made the GPT Search Page multi-lingual. It supports 4 languages - English , Hindi , French , Italian
 - implemented the logic to use OPEN AI API but the limit to request the API is limited to very less.So, I took hardcoded data.
 - took those movies and implemented the logic to search those movies inside TMDB API.
+-made the web application responsive
     
 ## Features to be included:
 

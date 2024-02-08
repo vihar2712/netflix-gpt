@@ -61,15 +61,15 @@ const Header = () => {
     });
   }, []);
   return (
-    <div className="flex justify-between bg-gradient-to-b from-black">
-      <div className=" w-64 p-4 hover:cursor-pointer z-30">
-        <img src={NETFLIX_LOGO} alt="netflix-logo" />
+    <div className="flex flex-col justify-between sm:flex-row items-center bg-gradient-to-b from-black">
+      <div className="w-48 sm:w-64 hover:cursor-pointer z-30">
+        <img src={NETFLIX_LOGO} alt="netflix-logo" className="mt-2"/>
       </div>
       {user && (
-        <div className="flex p-6 m-4 text-white items-center z-40">
+        <div className="flex p-2 md:p-6 md:m-4 text-white items-center justify-between w-full sm:w-fit z-40">
           {showGptSearch && (
             <select
-              className="bg-red-600 p-2 mx-2 rounded-lg hover:cursor-pointer"
+              className="bg-red-600 p-1 sm:p-2 mx-2 rounded-lg hover:cursor-pointer"
               onChange={changeLang}
             >
               {SUPPORTED_LANGUAGES.map((lang) => (
@@ -81,15 +81,17 @@ const Header = () => {
           )}
           <button
             onClick={toggleShowGptSearch}
-            className="bg-red-600 p-2 mx-2 rounded-lg hover:text-gray-300"
+            className="bg-red-600 p-1 sm:p-2 mx-2 rounded-lg hover:text-gray-300"
           >
             {showGptSearch ? "Home" : "GPT Search"}
           </button>
-          <h1>{user.displayName}</h1>
-          <img src={user.photoURL} className="w-14 px-2" />
-          <button onClick={handleSignOut} className="hover:underline">
-            Sign Out
+          <img src={user.photoURL} className="hidden sm:inline-block sm:w-14 sm:px-2" />
+          <div className="flex flex-col text-red-600">
+          <h1 className="text-sm sm:text-md md:text-lg">{user.displayName}</h1>
+          <button onClick={handleSignOut} className="text-sm sm:text-md md:text-lg hover:underline">
+            (Sign Out)
           </button>
+          </div>
         </div>
       )}
     </div>

@@ -41,7 +41,7 @@ const Login = () => {
           .then((userCredential) => {
             // Signed up
             const user = userCredential.user;
-            console.log(user, auth.currentUser);
+            // console.log(user, auth.currentUser);
 
             //   user.displayName = name.current.value;
             updateProfile(user, {
@@ -93,67 +93,72 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div className="bg-black absolute top-0">
-        <img src={BACKGROUND_IMAGE} className="opacity-55" alt="bg-movies" />
+      <div className="bg-black fixed top-0">
+        <img
+          src={BACKGROUND_IMAGE}
+          className=" h-screen w-screen object-cover opacity-55"
+          alt="bg-movies"
+        />
       </div>
-
-      <div className="flex flex-col absolute bg-black text-white lg:w-4/12 py-10 px-12 rounded-md top-28 right-1/3 bg-opacity-80">
-        <h1 className="text-3xl font-bold p-4 mb-2">
-          {isSignIn ? "Sign In" : "Sign Up"}
-        </h1>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleValidation();
-          }}
-        >
-          <div>
-            {!isSignIn && (
+      <div className="flex justify-center">
+        <div className="flex flex-col relative m-4 md:m-0 md:w-4/12 bg-black text-white w-full p-4 sm:py-10 sm:px-12 rounded-md  bg-opacity-80">
+          <h1 className="text-xl sm:text-3xl font-bold sm:p-4 mb-2">
+            {isSignIn ? "Sign In" : "Sign Up"}
+          </h1>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleValidation();
+            }}
+          >
+            <div>
+              {!isSignIn && (
+                <input
+                  ref={name}
+                  type="text"
+                  placeholder="Full Name"
+                  className="sm:p-4 sm:m-2 bg-transparent border border-gray-500 rounded-sm w-full"
+                  required
+                />
+              )}
               <input
-                ref={name}
+                ref={email}
                 type="text"
-                placeholder="Full Name"
-                className="p-4 m-2 bg-transparent border border-gray-500 rounded-sm w-full"
+                placeholder="Email address"
+                className="p-4 my-2 sm:m-2 bg-transparent border border-gray-500 rounded-sm w-full"
                 required
               />
-            )}
-            <input
-              ref={email}
-              type="text"
-              placeholder="Email address"
-              className="p-4 m-2 bg-transparent border border-gray-500 rounded-sm w-full"
-              required
-            />
-            <input
-              ref={password}
-              type="password"
-              placeholder="password"
-              className="p-4 m-2 bg-transparent border border-gray-500 rounded-sm w-full"
-              required
-            />
-            <button className="w-full py-2 px-4 m-2 bg-red-600 hover:bg-red-700 rounded-md">
-              {isSignIn ? "Sign In" : "Sign Up"}
-            </button>
+              <input
+                ref={password}
+                type="password"
+                placeholder="password"
+                className="p-4 my-2 sm:m-2 bg-transparent border border-gray-500 rounded-sm w-full"
+                required
+              />
+              <button className="w-full py-2 px-4 my-2 sm:m-2 bg-red-600 hover:bg-red-700 rounded-md">
+                {isSignIn ? "Sign In" : "Sign Up"}
+              </button>
+            </div>
+          </form>
+          {errorMessage && (
+            <p className="text-red-600 font-bold text-lg p-2 m-2">
+              {errorMessage}
+            </p>
+          )}
+          <p className="text-center hover:text-gray-400 hover:underline hover:cursor-pointer">
+            Forgot Password?
+          </p>
+          <div className="mt-10 p-3 w-full sm:w-9/12">
+            <p>
+              {isSignIn ? "New to Netflix ? " : "Already Registered ? "}
+              <span
+                className="hover:underline cursor-pointer"
+                onClick={handleIsSignIn}
+              >
+                {isSignIn ? " Sign up now." : "Sign In"}
+              </span>
+            </p>
           </div>
-        </form>
-        {errorMessage && (
-          <p className="text-red-600 font-bold text-lg p-2 m-2">
-            {errorMessage}
-          </p>
-        )}
-        <p className="text-center hover:text-gray-400 hover:underline hover:cursor-pointer">
-          Forgot Password?
-        </p>
-        <div className="mt-10 p-3 w-9/12">
-          <p>
-            {isSignIn ? "New to Netflix ? " : "Already Registered ? "}
-            <span
-              className="hover:underline cursor-pointer"
-              onClick={handleIsSignIn}
-            >
-              {isSignIn ? " Sign up now." : "Sign In"}
-            </span>
-          </p>
         </div>
       </div>
     </div>

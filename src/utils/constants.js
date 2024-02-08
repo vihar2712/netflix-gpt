@@ -11,8 +11,7 @@ export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNDYzMjhmZDc3ZjFmNjFhN2JkMDljNTZhMjkxMjI3NSIsInN1YiI6IjY1YzEyNzI4YTM1YzhlMDE3Y2Q4MjFlZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.aiSX6celcT6ll013FFPB9aGRUHXdR7t6r7bC5yCDRW0",
+    Authorization: "Bearer " + process.env.REACT_APP_TMDB_KEY,
   },
 };
 
@@ -30,8 +29,7 @@ export const UPCOMING_MOVIES_API_URL =
 
 export const MOVIE_IMAGE_URL = "https://image.tmdb.org/t/p/w500/";
 
-export const OPEN_AI_KEY =
-  "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";
+export const OPEN_AI_KEY = process.env.REACT_APP_OPEN_AI_KEY;
 
 export const SEARCH_MOVIES_API_URL =
   "https://api.themoviedb.org/3/search/movie?query=";
