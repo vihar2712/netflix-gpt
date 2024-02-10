@@ -1,4 +1,4 @@
-import { API_OPTIONS, NOW_PLAYING_MOVIES_API_URL } from "../utils/constants";
+import { API_OPTIONS } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 

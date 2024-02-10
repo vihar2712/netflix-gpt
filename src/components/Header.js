@@ -85,7 +85,7 @@ const Header = () => {
           >
             {showGptSearch ? "Home" : "GPT Search"}
           </button>
-          <img src={user.photoURL} className="hidden sm:inline-block sm:w-14 sm:px-2" />
+          <img src={user.photoURL} className="hidden sm:inline-block sm:w-14 sm:px-2" alt="user-pic"/>
           <div className="flex flex-col text-red-600">
           <h1 className="text-sm sm:text-md md:text-lg">{user.displayName}</h1>
           <button onClick={handleSignOut} className="text-sm sm:text-md md:text-lg hover:underline">

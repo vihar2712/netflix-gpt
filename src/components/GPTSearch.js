@@ -1,11 +1,11 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { BACKGROUND_IMAGE } from "../utils/constants";
 import GPTMovieSuggestions from "./GPTMovieSuggestions";
 import GPTSearchBar from "./GPTSearchBar";
-import { ALL_LANGUAGES } from "../utils/langConstants";
+// import { ALL_LANGUAGES } from "../utils/langConstants";
 
 const GPTSearch = () => {
-  const language = useSelector((store) => store.language?.lang);
+  // const language = useSelector((store) => store.language?.lang);
   return (
     <div>
       <div className="bg-black -z-10 fixed top-0 rounded-md">
