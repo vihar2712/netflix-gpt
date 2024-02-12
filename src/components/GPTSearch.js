@@ -7,9 +7,13 @@ import GPTSearchBar from "./GPTSearchBar";
 const GPTSearch = () => {
   // const language = useSelector((store) => store.language?.lang);
   return (
-    <div>
+    <div className="h-screen">
       <div className="bg-black -z-10 fixed top-0 rounded-md">
-        <img src={BACKGROUND_IMAGE} className="opacity-55 h-screen w-screen object-cover" alt="bg-movies" />
+        <img
+          src={BACKGROUND_IMAGE}
+          className="opacity-55 h-screen w-screen object-cover"
+          alt="bg-movies"
+        />
       </div>
       {/* <div>
         <h1 className="bg-red-600 p-2 m-2 rounded-sm text-gray-300">

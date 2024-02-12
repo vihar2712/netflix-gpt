@@ -5,7 +5,7 @@ export const ALL_LANGUAGES = {
     disclaimer:
       "As, I don't have OPEN AI tier-1 subscription, i can't access the API and so, I have taken hard coded data of movies and search those movies inside TMDB database. Just click search button and you will get the results",
   },
-  hindi: {
+  hi: {
     search: "खोज",
     gptSearchPlaceholder: "आज आप क्या देखना चाहते हैं?",
     disclaimer:
@@ -31,7 +31,7 @@ export const SUPPORTED_LANGUAGES = [
     name: "English",
   },
   {
-    identifier: "hindi",
+    identifier: "hi",
     name: "Hindi",
   },
   {
@@ -41,5 +41,20 @@ export const SUPPORTED_LANGUAGES = [
   {
     identifier: "italian",
     name: "Italian",
+  },
+];
+
+export const SUPPORTED_MOVIE_LANGUAGES = [
+  {
+    identifier: "all",
+    name: "All Languages",
+  },
+  {
+    identifier: "en",
+    name: "English",
+  },
+  {
+    identifier: "hi",
+    name: "Hindi",
   },
 ];

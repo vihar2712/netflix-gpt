@@ -4,9 +4,11 @@ const gptSlice = createSlice({
   name: "gpt",
   initialState: {
     showGptSearch: false,
-    gptSearchText: "",
+    gptSearchText: null,
     tmdbMovieNames: [],
     tmdbSearchResults: [],
+    loadingText: "Search for movies....",
+    movieLang: "all",
   },
   reducers: {
     toggleGptSearch: (state) => {
@@ -21,9 +23,21 @@ const gptSlice = createSlice({
     addSearchText: (state, action) => {
       state.gptSearchText = action.payload;
     },
+    changeMovieLang: (state, action) => {
+      state.movieLang = action.payload;
+    },
+    changeLoadingText: (state, action) => {
+      state.loadingText = action.payload;
+    },
   },
 });
 
-export const { toggleGptSearch, addTmdbResults, addMovieNames, addSearchText } =
-  gptSlice.actions;
+export const {
+  toggleGptSearch,
+  addTmdbResults,
+  addMovieNames,
+  addSearchText,
+  changeMovieLang,
+  changeLoadingText,
+} = gptSlice.actions;
 export default gptSlice.reducer;

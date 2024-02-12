@@ -10,6 +10,7 @@ import {
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -100,8 +101,8 @@ const Login = () => {
           alt="bg-movies"
         />
       </div>
-      <div className="flex justify-center">
-        <div className="flex flex-col relative m-4 md:m-0 md:w-4/12 bg-black text-white w-full p-4 sm:py-10 sm:px-12 rounded-md  bg-opacity-80">
+      <div className="flex justify-center mb-6 h-screen">
+        <div className="flex flex-col relative m-4 md:m-0 md:w-4/12 bg-black text-white w-full p-4 sm:py-10 sm:px-12 rounded-md bg-opacity-80">
           <h1 className="text-xl sm:text-3xl font-bold sm:p-4 mb-2">
             {isSignIn ? "Sign In" : "Sign Up"}
           </h1>
@@ -161,6 +162,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
