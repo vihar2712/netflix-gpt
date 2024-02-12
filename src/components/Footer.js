@@ -5,14 +5,12 @@ import { useSelector } from "react-redux";
 
 const Footer = () => {
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
-  const user = useSelector(store=>store.user)
+  const user = useSelector((store) => store.user);
   return (
     <div
       className={
         "bg-black text-gray-400 grid grid-cols-9 p-6 relative z-30 " +
-       ( showGptSearch || !user
-          ? "bg-opacity-80"
-          : "")
+        (showGptSearch || !user ? "bg-opacity-80" : "")
       }
     >
       <div className="col-span-2">
@@ -24,7 +22,9 @@ const Footer = () => {
           from TMDB API. Also, Open AI API is integrated to leverage the powers
           of OPEN AI which is used by tools like ChatGPT. If the movies do not
           get displayed, please try to refresh the page as th API response
-          sometimes return 404. Hope, you like the project :-)
+          sometimes return 404. Authentication is done using Firebase. The
+          documentation regarding the project is provided on Github. Hope, you
+          like the project :-)
         </p>
       </div>
       <div className="col-span-2 text-center">

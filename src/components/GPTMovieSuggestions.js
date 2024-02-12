@@ -6,7 +6,7 @@ const GPTMovieSuggestions = () => {
   let movieResults = useSelector((store) => store.gpt.tmdbSearchResults);
   const movieLang = useSelector((store) => store.gpt.movieLang);
 
-  console.log(movieResults.length);
+  // console.log(movieResults.length);
 
   if (movieResults.length === 0)
     return <h1 className="text-white text-center">{loadingText}</h1>;
@@ -24,7 +24,7 @@ const GPTMovieSuggestions = () => {
       return fMovie;
     }, initialValue);
   }
-  console.log(moviesArr);
+  // console.log(moviesArr);
 
   if (moviesArr.length === 0)
     return (

@@ -30,9 +30,10 @@
 - created a central hook (useMovieCategory) which takes the API link and dispatch function as parameters and stores the data returned by API inside the redux store
 - build a GPT Search Page
 - Bonus feature - Made the GPT Search Page multi-lingual. It supports 4 languages - English , Hindi , French , Italian
-- implemented the logic to use OPEN AI API but the limit to request the API is limited to very less.So, I took hardcoded data.
-- took those movies and implemented the logic to search those movies inside TMDB API.
+- implemented the logic to use OPEN AI API to search for movies.
 - made the web application responsive
+-added a feature of filtering the movie results based on the language
+- added a footer
     
 ## Features to be included:
 

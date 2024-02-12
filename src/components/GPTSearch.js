@@ -1,4 +1,5 @@
 // import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { BACKGROUND_IMAGE } from "../utils/constants";
 import GPTMovieSuggestions from "./GPTMovieSuggestions";
 import GPTSearchBar from "./GPTSearchBar";
@@ -6,8 +7,9 @@ import GPTSearchBar from "./GPTSearchBar";
 
 const GPTSearch = () => {
   // const language = useSelector((store) => store.language?.lang);
+  const movieResults = useSelector((store)=>store.gpt.tmdbSearchResults);
   return (
-    <div className="h-screen">
+    <div className={movieResults.length===0 && "h-screen"}>
       <div className="bg-black -z-10 fixed top-0 rounded-md">
         <img
           src={BACKGROUND_IMAGE}
