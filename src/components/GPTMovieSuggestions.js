@@ -40,6 +40,7 @@ const GPTMovieSuggestions = () => {
           return (
             <MovieCard
               key={movie.id}
+              movieId={movie.id}
               title={movie.title}
               imageId={movie.poster_path}
             />

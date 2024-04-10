@@ -12,7 +12,7 @@ const MainContainer = () => {
 
   return (
     <div className="max-sm:-mt-32 max-sm:pt-32 bg-black sm:-mt-24 md:-mt-32 lg:-mt-40 xl:-mt-48">
-      <VideoTitle title={title} overview={overview} /> 
+      <VideoTitle title={title} overview={overview} movieId={id} /> 
       <VideoBackground movieId={id} />
     </div>
   );

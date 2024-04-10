@@ -18,18 +18,26 @@ const SecondaryContainer = () => {
   useMovieCategory(
     NOW_PLAYING_MOVIES_API_URL,
     addNowPlayingMovies,
-    "nowPlayingMovies"
+    "nowPlayingMovies",
+    false
   );
-  useMovieCategory(POPULAR_MOVIES_API_URL, addPopularMovies, "popularMovies");
+  useMovieCategory(
+    POPULAR_MOVIES_API_URL,
+    addPopularMovies,
+    "popularMovies",
+    false
+  );
   useMovieCategory(
     TOP_RATED_MOVIES_API_URL,
     addTopRatedMovies,
-    "topRatedMovies"
+    "topRatedMovies",
+    false
   );
   useMovieCategory(
     UPCOMING_MOVIES_API_URL,
     addUpcomingMovies,
-    "upcomingMovies"
+    "upcomingMovies",
+    false
   );
   const allMovieCategories = useSelector((store) => store.movies);
   // console.log(allMovieCategories);
@@ -40,16 +48,32 @@ const SecondaryContainer = () => {
     <div>
       <div className="sm:-mt-24 md:-mt-32 lg:-mt-36 xl:-mt-48">
         {nowPlayingMovies && (
-          <MoviesList title="Now Playing" movies={nowPlayingMovies} showName={true} />
+          <MoviesList
+            title="Now Playing"
+            movies={nowPlayingMovies}
+            showName={true}
+          />
         )}
         {popularMovies && (
-          <MoviesList title="Popular Movies" movies={popularMovies} showName={true} />
+          <MoviesList
+            title="Popular Movies"
+            movies={popularMovies}
+            showName={true}
+          />
         )}
         {topRatedMovies && (
-          <MoviesList title="Top Rated" movies={topRatedMovies} showName={true} />
+          <MoviesList
+            title="Top Rated"
+            movies={topRatedMovies}
+            showName={true}
+          />
         )}
         {upcomingMovies && (
-          <MoviesList title="Upcoming" movies={upcomingMovies} showName={true}/>
+          <MoviesList
+            title="Upcoming"
+            movies={upcomingMovies}
+            showName={true}
+          />
         )}
       </div>
     </div>

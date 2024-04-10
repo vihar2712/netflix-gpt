@@ -107,7 +107,7 @@ const GPTSearchBar = () => {
               <option
                 key={lang.identifier}
                 value={lang.identifier}
-                selected={lang.identifier === moviesLang}
+                defaultValue={lang.identifier === moviesLang}
               >
                 {lang.name}
               </option>

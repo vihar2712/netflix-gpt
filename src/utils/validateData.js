@@ -6,17 +6,15 @@ export const validateData = (email, password, name = "Default") => {
   );
 
   const isPasswordValid =
-    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(
-     password
-    );
-  const isNameValid = /^([a-zA-Z]{3,})$/.test(name);
+    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password);
+  const isNameValid = /^([a-zA-Z0-9]{3,})$/.test(name.trim());
   // console.log(isNameValid, isEmailValid, isPasswordValid);
 
-  if (!isNameValid) return "Enter full name";
+  if (!isNameValid) return "Enter name without spaces";
 
   if (!isEmailValid) return "Email ID is not valid";
 
-  if (!isPasswordValid) return "Password is not valid";
+  if (!isPasswordValid) return "Password is not valid.";
 
   return null;
 };
