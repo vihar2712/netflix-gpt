@@ -11,7 +11,7 @@ import { changeLanguage } from "../utils/langSlice";
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector((store) => store.user);
+  const { info } = useSelector((store) => store.user);
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const language = useSelector((store) => store.language.lang);
   //   console.log("user");
@@ -44,7 +44,7 @@ const Header = () => {
           <img src={NETFLIX_LOGO} alt="netflix-logo" className="w-24 " />
         </Link>
       </div>
-      {user && (
+      {info && (
         <div className="flex p-2 md:p-6 md:m-4 text-white items-center justify-between w-full sm:w-fit z-40">
           {showGptSearch && (
             <select
@@ -81,13 +81,13 @@ const Header = () => {
             {showGptSearch ? "Home" : "GPT Search"}
           </button> */}
           <img
-            src={user.photoURL}
+            src={info.photoURL}
             className="hidden sm:inline-block sm:w-14 sm:px-2"
             alt="user-pic"
           />
           <div className="flex flex-col text-red-600">
             <h1 className="text-sm sm:text-md md:text-lg font-bold">
-              {user.displayName}
+              {info.displayName}
             </h1>
             <button
               onClick={handleSignOut}

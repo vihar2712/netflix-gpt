@@ -2,17 +2,27 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const userSlice = createSlice({
   name: "user",
-  initialState: null,
+  initialState: {
+    info: null,
+    loading: false,
+  },
   reducers: {
-    addUser: (state, action) => {
-      return action.payload;
+    startSigning: (state) => {
+      state.loading = true;
     },
-    removeUser: () => {
-      return null;
+    stopSigning: (state) => {
+      state.loading = false;
+    },
+    addUser: (state, action) => {
+      state.info = action.payload;
+    },
+    removeUser: (state) => {
+      state.info = null;
     },
   },
 });
 
-export const { addUser, removeUser } = userSlice.actions;
+export const { addUser, removeUser, startSigning, stopSigning } =
+  userSlice.actions;
 
 export default userSlice.reducer;

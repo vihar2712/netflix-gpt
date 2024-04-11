@@ -7,8 +7,8 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, startSigning, stopSigning } from "../utils/userSlice";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const { loading } = useSelector((store) => store.user);
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
@@ -27,12 +28,14 @@ const Login = () => {
   };
 
   const handleValidation = () => {
+    dispatch(startSigning());
     const message = validateData(
       email.current.value,
       password.current.value,
       name?.current?.value
     );
     setErrorMessage(message);
+    dispatch(stopSigning());
     if (message === null) {
       if (!isSignIn) {
         // Sign up page
@@ -88,6 +91,8 @@ const Login = () => {
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
+            if (errorCode === "auth/invalid-credential")
+              return setErrorMessage("Wrong credentials. Try again");
             setErrorMessage(errorCode + "-" + errorMessage);
           });
       }
@@ -139,8 +144,14 @@ const Login = () => {
                 className="p-4 my-2 sm:m-2 bg-transparent border border-gray-500 rounded-sm w-full"
                 required
               />
-              <button className="w-full py-2 px-4 my-2 sm:m-2 bg-red-600 hover:bg-red-700 rounded-md">
-                {isSignIn ? "Sign In" : "Sign Up"}
+              <button
+                disabled={loading}
+                className={
+                  "w-full py-2 px-4 my-2 sm:m-2 bg-red-600 hover:bg-red-700 rounded-md " +
+                  (loading ? "disabled:opacity-75" : "")
+                }
+              >
+                {loading ? "Please Wait.." : isSignIn ? "Sign In" : "Sign Up"}
               </button>
             </div>
           </form>
