@@ -37,9 +37,9 @@ const Login = () => {
     setErrorMessage(message);
     dispatch(stopSigning());
     if (message === null) {
+      dispatch(startSigning());
       if (!isSignIn) {
         // Sign up page
-        dispatch(startSigning());
         createUserWithEmailAndPassword(
           auth,
           email.current.value,
@@ -67,13 +67,16 @@ const Login = () => {
                   })
                 );
                 navigate("/browse");
+                dispatch(stopSigning());
               })
               .catch((error) => {
                 // An error occurred
+                dispatch(stopSigning());
                 setErrorMessage(error.message);
               });
           })
           .catch((error) => {
+            dispatch(stopSigning());
             const errorCode = error.code;
             const errorMessage = error.message;
             setErrorMessage(errorCode + "-" + errorMessage);
@@ -88,9 +91,11 @@ const Login = () => {
           .then((userCredential) => {
             // Signed in
             // const user = userCredential.user;
+            dispatch(stopSigning());
             navigate("/browse");
           })
           .catch((error) => {
+            dispatch(stopSigning());
             const errorCode = error.code;
             const errorMessage = error.message;
             if (errorCode === "auth/invalid-credential")
