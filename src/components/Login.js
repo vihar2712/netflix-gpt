@@ -39,6 +39,7 @@ const Login = () => {
     if (message === null) {
       if (!isSignIn) {
         // Sign up page
+        dispatch(startSigning());
         createUserWithEmailAndPassword(
           auth,
           email.current.value,
@@ -65,6 +66,7 @@ const Login = () => {
                     photoURL: photoURL,
                   })
                 );
+                navigate("/browse");
               })
               .catch((error) => {
                 // An error occurred
