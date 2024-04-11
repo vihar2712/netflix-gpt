@@ -4,8 +4,8 @@ import { MOVIE_IMAGE_URL } from "../utils/constants";
 const MovieCard = ({ imageId, movieId }) => {
   if (!imageId) return;
   return (
-    <Link to={'/movies/'+movieId}>
-      <div className="w-12 sm:w-36 md:w-42 lg:w-48 xl:w-52 2xl:w-64 p-1 hover:scale-105 hover:cursor-pointer">
+    <Link to={"/movies/" + movieId}>
+      <div className="w-12 h-24 sm:w-36 sm:h-48 md:w-42 md:h-56 lg:w-48 lg:h-64 xl:w-52 xl:h-80 2xl:w-64 2xl:h-96 hover:scale-105 hover:cursor-pointer">
         {/* {showName && (
         <h1 className="text-md">
           {title}
@@ -13,7 +13,7 @@ const MovieCard = ({ imageId, movieId }) => {
       )} */}
         <img
           src={MOVIE_IMAGE_URL + imageId}
-          className="rounded-md h-full"
+          className="rounded-md h-full "
           alt="movie"
         />
       </div>
